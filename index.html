@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html >
     <head>
@@ -6,7 +5,7 @@
         <title>TodoApp - Create A Todo With Django</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <div django-app="TaskManager">        
@@ -15,7 +14,6 @@
                     <h1>TodoApp</h1>
                     <p class="tagline">a Django todo app</p>
                     <form action="" method="post">
-                        {% csrf_token %} <!-- csrf token for basic security -->
                             <div class="inputContainer">
                                 <input type="text" id="description" class="taskName" placeholder="What do you need to do?" name="description" required>
                                 <label for="description">Description</label>
@@ -24,9 +22,7 @@
                                 <i class="fa fa-caret-down selectArrow"></i>
                                 <select id="category" class="taskCategory" name="category_select">
                                 <option class="disabled" value="">Choose a category</option>
-                                {% for categoria in categorias %}
-                                    <option class="" value="{{ category.name }}" name="{{ category.name }}">{{ categoria.name }}</option>
-                                {% endfor %}
+                                    <option class="" value="" name=""></option>
                                 </select>
                                 <label for="category">Category</label>
                             </div>
@@ -39,14 +35,13 @@
                                 <button class="taskDelete" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();"><i class="fa fa-trash-o icon"></i>Delete Tasks</button>
                             </div>
                         <ul class="taskList">
-                        {% for lista in listas %} <!-- django template lang - for loop -->
+                         <!-- django template lang - for loop -->
                             <li class="taskItem">
-                                <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ todo.id }}" value="{{ todo.id }}">
-                                <label for="{{ todo.id }}"><span class="complete-">{{ lista.titulo }}</span></label>
-                                <span class="category-{{ todo.category }}">{{ lista.categoria }}</span>
-                                <strong class="taskDate"><i class="fa fa-calendar"></i>{{ lista.created }}</strong>
+                                <input type="checkbox" class="taskCheckbox" name="checkedbox" id="" value="">
+                                <label for=""><span class="complete-"></span></label>
+                                <span class="category-"></span>
+                                <strong class="taskDate"><i class="fa fa-calendar"></i></strong>
                             </li>
-                        {% endfor %}
                         </ul><!-- taskList -->
                     </form>
                 </div><!-- content -->
